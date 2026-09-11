@@ -5,33 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>PREVIO | Entender antes. Diseñar después.</title>
     
-    <!-- Favicon Oficial -->
-    <link rel="icon" type="image/png" href="assets/img/icon.png">
+    <!-- Favicon Oficial en raíz -->
+    <link rel="icon" type="image/png" href="icon.png">
 
     <!-- SEO On-Page -->
     <meta name="description" content="PREVIO desarrolla soluciones para espacios de vivienda y comercio desde una mirada técnica, funcional y estética. Criterio arquitectónico antes de transformar.">
     <meta name="robots" content="index, follow">
 
-    <!-- Tipografías de Agencia: Syne (Titulares) y Plus Jakarta Sans (Cuerpo) -->
+    <!-- Tipografías de Agencia: Syne & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Estilos de Agencia -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Hoja de Estilos en raíz -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- PRELOADER -->
     <div id="preloader" class="preloader-curtain">
         <div class="preloader-inner">
-            <img src="assets/img/logo.png" alt="PREVIO" class="preloader-logo" onerror="this.src='assets/img/logo2.png'">
+            <img src="logo.png" alt="PREVIO" class="preloader-logo" onerror="this.src='logo2.png'">
             <div class="preloader-bar"><div class="preloader-progress"></div></div>
             <span class="preloader-text">ENTENDER · ORDENAR · DEFINIR · ANTICIPAR</span>
         </div>
     </div>
 
-    <!-- CURSOR PERSONALIZADO (Solo Desktop) -->
+    <!-- CURSOR FLUIDO (Desktop) -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-circle" id="cursorCircle"></div>
 
@@ -39,7 +39,7 @@
     <header class="header-nav" id="mainHeader">
         <div class="header-container">
             <a href="#" class="brand-identity">
-                <img src="assets/img/logo2.png" alt="PREVIO" class="nav-logo" onerror="this.outerHTML='<span class=\'fallback-logo\'>◆ PREVIO</span>'">
+                <img src="logo.png" alt="PREVIO" class="nav-logo" onerror="this.src='logo2.png'">
             </a>
 
             <!-- Menú Escritorio -->
@@ -62,12 +62,12 @@
         </div>
     </header>
 
-    <!-- MENÚ LATERAL OFF-CANVAS -->
+    <!-- MENÚ OFF-CANVAS -->
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="drawer-overlay" id="drawerOverlay"></div>
         <div class="drawer-panel">
             <div class="drawer-header">
-                <img src="assets/img/logo.png" alt="PREVIO" class="drawer-logo" onerror="this.outerHTML='<span class=\'fallback-logo\'>◆ PREVIO</span>'">
+                <img src="logo.png" alt="PREVIO" class="drawer-logo" onerror="this.src='logo2.png'">
                 <button class="drawer-close" id="drawerCloseBtn" aria-label="Cerrar">&times;</button>
             </div>
             <nav class="drawer-links">
@@ -112,7 +112,7 @@
 
                 <div class="hero-showcase reveal-fade">
                     <div class="showcase-card">
-                        <img src="assets/img/hero.jfif" alt="Espacio en estado previo: arquitectura existente, luz, planos y materiales" class="responsive-img">
+                        <img src="hero.jfif" alt="Espacio en estado previo: arquitectura existente, luz, planos y materiales" class="responsive-img">
                         <div class="showcase-badge">
                             <span class="sc-number">01 / ESTADO BASE</span>
                             <p>Estructura existente, iluminación natural y materialidad en estudio</p>
@@ -168,7 +168,7 @@
                 <div class="blueprint-scanner-box reveal-fade">
                     <div class="scan-laser-bar"></div>
                     <div class="scan-annotation">
-                        <img src="assets/img/plano.svg" alt="Icono Plano SVG" class="scanner-mini-svg">
+                        <img src="plano.svg" alt="Icono Plano SVG" class="scanner-mini-svg">
                         <span class="scan-mono">METODOLOGÍA EDITORIAL</span>
                         <p class="scan-flow">PLANO → COMPRENSIÓN → ESPACIO REAL</p>
                     </div>
@@ -214,9 +214,9 @@
 
                     <div class="problem-col-visual reveal-fade">
                         <div class="editorial-card-frame">
-                            <img src="assets/img/plano02.jpg" alt="Capas superpuestas de planos de análisis" class="responsive-img">
+                            <img src="plano02.jpg" alt="Capas superpuestas de planos de análisis" class="responsive-img">
                             <div class="frame-legend">
-                                <img src="assets/img/medidas.svg" alt="Cotas SVG" class="legend-svg-badge">
+                                <img src="medidas.svg" alt="Cotas SVG" class="legend-svg-badge">
                                 <div>
                                     <strong>Lectura Técnica:</strong> Zonificación de circulaciones, ejes de paso y mobiliario
                                 </div>
@@ -227,11 +227,10 @@
             </div>
         </section>
 
-        <!-- 04 — CADENCIA CON SCROLL (CONEXIÓN FLUIDA RESPONSIVA) -->
+        <!-- 04 — CADENCIA CON SCROLL (STICKY PIN CONECTOR) -->
         <section class="cadence-scroll-container" id="cadenceSection">
             <div class="cadence-sticky-viewport">
                 
-                <!-- Hilo vertical conector -->
                 <div class="cadence-thread-track">
                     <div class="cadence-thread-fill" id="cadenceThreadFill"></div>
                     <div class="cadence-thread-head" id="cadenceThreadHead"></div>
@@ -278,7 +277,6 @@
 
                     </div>
 
-                    <!-- Revelación final -->
                     <div class="cadence-final-reveal" id="cadenceFinalReveal">
                         <span class="final-eyebrow">EL PUNTO DE INFLEXIÓN</span>
                         <h2 class="final-brand-title">AHÍ EMPIEZA PREVIO.</h2>
@@ -305,14 +303,14 @@
                         </div>
                         <div class="stage-info-col">
                             <div class="stage-badge-inline">
-                                <img src="assets/img/medidas.svg" alt="Medidas SVG" class="mini-tag-svg">
+                                <img src="medidas.svg" alt="Medidas SVG" class="mini-tag-svg">
                                 <span>Cotas y Proporción</span>
                             </div>
                             <h3 class="stage-name">OBSERVAR</h3>
                             <p class="stage-desc">Entender cómo se utiliza el espacio, qué ocurre en él y qué necesita realmente. Analizar la iluminación natural, recorridos de paso y proporciones existentes.</p>
                         </div>
                         <div class="stage-visual-col">
-                            <img src="assets/img/Gemini_Generated_Image_s6umoks6umoks6um.jpg" alt="01 Observar: espacio real y mediciones" onerror="this.src='assets/img/proyecto-01.jpg'">
+                            <img src="proyecto-01.jpg" alt="01 Observar: análisis y proporciones">
                         </div>
                     </article>
 
@@ -324,14 +322,14 @@
                         </div>
                         <div class="stage-info-col">
                             <div class="stage-badge-inline">
-                                <img src="assets/img/mobiliario.svg" alt="Mobiliario SVG" class="mini-tag-svg">
+                                <img src="mobiliario.svg" alt="Mobiliario SVG" class="mini-tag-svg">
                                 <span>Circulaciones y Usos</span>
                             </div>
                             <h3 class="stage-name">ORDENAR</h3>
                             <p class="stage-desc">Encontrar relaciones entre ambientes, circulaciones fluidas, proporciones y elementos existentes a través de planos transparentes rigurosamente alineados.</p>
                         </div>
                         <div class="stage-visual-col">
-                            <img src="assets/img/Gemini_Generated_Image_pe8n7ppe8n7ppe8n.jpg" alt="02 Ordenar: planos superpuestos y alineados" onerror="this.src='assets/img/distribucion.svg'">
+                            <img src="plano02.jpg" alt="02 Ordenar: planos superpuestos y alineados">
                         </div>
                     </article>
 
@@ -343,14 +341,14 @@
                         </div>
                         <div class="stage-info-col">
                             <div class="stage-badge-inline">
-                                <img src="assets/img/detalle.svg" alt="Detalle SVG" class="mini-tag-svg">
+                                <img src="detalle.svg" alt="Detalle SVG" class="mini-tag-svg">
                                 <span>Materialidad y Textura</span>
                             </div>
                             <h3 class="stage-name">DEFINIR</h3>
                             <p class="stage-desc">Convertir necesidades en decisiones concretas: maderas seleccionadas, piedra volcánica, perfiles metálicos y textiles técnicos calibrados con precisión.</p>
                         </div>
                         <div class="stage-visual-col">
-                            <img src="assets/img/Gemini_Generated_Image_t7c1sqt7c1sqt7c1.jpg" alt="03 Definir: bodegón de materiales" onerror="this.src='assets/img/interiorismo.svg'">
+                            <img src="proyecto-04.jpg" alt="03 Definir: materialidad con propósito">
                         </div>
                     </article>
 
@@ -362,21 +360,21 @@
                         </div>
                         <div class="stage-info-col">
                             <div class="stage-badge-inline">
-                                <img src="assets/img/plano.svg" alt="Plano SVG" class="mini-tag-svg">
+                                <img src="plano.svg" alt="Plano SVG" class="mini-tag-svg">
                                 <span>Geometría Volumétrica</span>
                             </div>
                             <h3 class="stage-name">ANTICIPAR</h3>
                             <p class="stage-desc">Visualizar el resultado antes de ejecutarlo. El puente geométrico exacto donde el plano bidimensional se transforma en la maqueta volumétrica del espacio real.</p>
                         </div>
                         <div class="stage-visual-col">
-                            <img src="assets/img/Gemini_Generated_Image_q8jiggq8jiggq8ji.jpg" alt="04 Anticipar: mitad plano y mitad maqueta volumétrica" onerror="this.src='assets/img/proyecto-03.jfif'">
+                            <img src="proyecto-03.jfif" alt="04 Anticipar: visión previa a la obra">
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- 09 — IMPACTO DE MARCA -->
+        <!-- 09 — IMPACTO NAVY -->
         <section class="impact-navy-section">
             <div class="site-wrapper text-center">
                 <div class="agency-tag-pill tag-pill-dark reveal-fade">
@@ -392,7 +390,7 @@
             </div>
         </section>
 
-        <!-- 10 & 11 — SERVICIOS -->
+        <!-- 10 & 11 — SERVICIOS (SVG NATIVOS) -->
         <section id="servicios" class="section-padding services-section">
             <div class="site-wrapper">
                 <div class="section-head-bar reveal-fade">
@@ -404,7 +402,7 @@
                     <div class="service-card-item reveal-fade">
                         <div class="sc-top">
                             <div class="sc-svg-box">
-                                <img src="assets/img/distribucion.svg" alt="Distribución Espacial SVG" class="service-svg-icon">
+                                <img src="distribucion.svg" alt="Distribución Espacial SVG" class="service-svg-icon">
                             </div>
                             <span class="sc-index">01</span>
                         </div>
@@ -416,7 +414,7 @@
                     <div class="service-card-item reveal-fade">
                         <div class="sc-top">
                             <div class="sc-svg-box">
-                                <img src="assets/img/interiorismo.svg" alt="Diseño de Interiores SVG" class="service-svg-icon">
+                                <img src="interiorismo.svg" alt="Diseño de Interiores SVG" class="service-svg-icon">
                             </div>
                             <span class="sc-index">02</span>
                         </div>
@@ -428,7 +426,7 @@
                     <div class="service-card-item reveal-fade">
                         <div class="sc-top">
                             <div class="sc-svg-box">
-                                <img src="assets/img/plano.svg" alt="Planos y Documentación SVG" class="service-svg-icon">
+                                <img src="plano.svg" alt="Planos y Documentación SVG" class="service-svg-icon">
                             </div>
                             <span class="sc-index">03</span>
                         </div>
@@ -440,7 +438,7 @@
                     <div class="service-card-item reveal-fade">
                         <div class="sc-top">
                             <div class="sc-svg-box">
-                                <img src="assets/img/detalle.svg" alt="Visualización y Detalle SVG" class="service-svg-icon">
+                                <img src="detalle.svg" alt="Visualización y Detalle SVG" class="service-svg-icon">
                             </div>
                             <span class="sc-index">04</span>
                         </div>
@@ -452,7 +450,7 @@
             </div>
         </section>
 
-        <!-- 12 — PROYECTOS / CASOS -->
+        <!-- 12 — PROYECTOS -->
         <section id="proyectos" class="section-padding projects-section">
             <div class="site-wrapper">
                 <div class="section-head-bar reveal-fade">
@@ -463,7 +461,7 @@
                 <div class="projects-dual-grid">
                     <article class="project-editorial-card reveal-fade">
                         <div class="pec-media-wrap">
-                            <img src="assets/img/proyecto-01.jpg" alt="Proyecto Vivienda Residencial PREVIO" class="responsive-img">
+                            <img src="proyecto-01.jpg" alt="Proyecto Vivienda Residencial PREVIO" class="responsive-img">
                             <div class="pec-floating-tag">01 / VIVIENDA</div>
                         </div>
                         <div class="pec-body">
@@ -479,7 +477,7 @@
 
                     <article class="project-editorial-card reveal-fade">
                         <div class="pec-media-wrap">
-                            <img src="assets/img/proyecto-02.jpg" alt="Proyecto Comercial Retail PREVIO" class="responsive-img">
+                            <img src="proyecto-02.jpg" alt="Proyecto Comercial Retail PREVIO" class="responsive-img">
                             <div class="pec-floating-tag">02 / COMERCIAL</div>
                         </div>
                         <div class="pec-body">
@@ -508,10 +506,12 @@
                 </div>
 
                 <div class="interactive-slider-box reveal-fade" id="touchSliderFrame">
-                    <img src="assets/img/proyecto-03.jfif" alt="Propuesta PREVIO resuelta" class="slider-bg-img" onerror="this.src='assets/img/proyecto-01.jpg'">
+                    <!-- Propuesta Resuelta (proyecto-03.jfif) -->
+                    <img src="proyecto-03.jfif" alt="Propuesta PREVIO resuelta" class="slider-bg-img" onerror="this.src='proyecto-01.jpg'">
                     
+                    <!-- Estado Inicial (proyecto-04.jpg) -->
                     <div class="slider-overlay-clip" id="sliderClipArea">
-                        <img src="assets/img/proyecto-04.jpg" alt="Estado original en bruto" class="slider-fg-img" id="sliderBeforeImg" onerror="this.src='assets/img/plano02.jpg'">
+                        <img src="proyecto-04.jpg" alt="Estado original en bruto" class="slider-fg-img" id="sliderBeforeImg" onerror="this.src='plano02.jpg'">
                     </div>
 
                     <div class="slider-drag-bar" id="sliderDividerHandle">
@@ -587,9 +587,9 @@
 
                     <div class="about-media-col reveal-fade">
                         <div class="about-photo-wrapper">
-                            <img src="assets/img/perfil%20principal.jfif" alt="Detrás de PREVIO: mesa de trabajo, planos, pantalla y materiales" class="about-main-photo responsive-img" onerror="this.src='assets/img/perfil.jpg'">
+                            <img src="perfil%20principal.jfif" alt="Detrás de PREVIO: mesa de trabajo, planos, pantalla y materiales" class="about-main-photo responsive-img" onerror="this.src='perfil.jpg'">
                             <div class="about-badge-floating">
-                                <img src="assets/img/plano.svg" alt="Icono SVG Plano" class="about-svg-icon">
+                                <img src="plano.svg" alt="Icono SVG Plano" class="about-svg-icon">
                                 <span>ANÁLISIS EN TALLER</span>
                             </div>
                         </div>
@@ -659,7 +659,7 @@
 
                     <div class="whatsapp-direct-box text-center">
                         <span class="wa-label">¿Prefieres una consulta directa e inmediata?</span>
-                        <a href="https://wa.me/3114896048?text=Hola%20PREVIO,%20necesito%20criterio%20para%20mi%20espacio." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-pill">
+                        <a href="https://wa.me/34600000000?text=Hola%20PREVIO,%20necesito%20criterio%20para%20mi%20espacio." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-pill">
                             Escribir por WhatsApp Directo ↗
                         </a>
                     </div>
@@ -674,7 +674,7 @@
         <div class="site-wrapper">
             <div class="footer-core-grid">
                 <div class="fc-col-brand">
-                    <img src="assets/img/logo2.png" alt="PREVIO" class="footer-logo" onerror="this.src='assets/img/logo.png'">
+                    <img src="logo2.png" alt="PREVIO" class="footer-logo" onerror="this.src='logo.png'">
                     <p class="footer-moto">Entender antes. Diseñar después.</p>
                 </div>
                 <div class="fc-col-copy">
@@ -684,7 +684,7 @@
         </div>
     </footer>
 
-    <!-- Scripts de interactividad -->
-    <script src="js/main.js"></script>
+    <!-- Script de interactividad -->
+    <script src="main.js"></script>
 </body>
 </html>
