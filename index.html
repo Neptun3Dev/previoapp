@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>PREVIO | Entender antes. Diseñar después.</title>
+    
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/jpeg" href="assets/images/icon.jpg">
+
+    <!-- Metadatos SEO -->
+    <meta name="description" content="PREVIO desarrolla soluciones para espacios de vivienda y comercio desde una mirada técnica, funcional y estética. Criterio arquitectónico antes de transformar.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Tipografías de Agencia: Syne & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos Blindados -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- PRELOADER MIVON STYLE -->
+    <div id="preloader" class="preloader-curtain">
+        <div class="preloader-inner">
+            <img src="assets/images/logo.png" alt="PREVIO" class="preloader-logo">
+            <div class="preloader-bar"><div class="preloader-progress"></div></div>
+            <span class="preloader-text">ENTENDER · ORDENAR · DEFINIR · ANTICIPAR</span>
+        </div>
+    </div>
+
+    <!-- CURSOR PERSONALIZADO (Desktop) -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-circle" id="cursorCircle"></div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <header class="header-nav" id="mainHeader">
+        <div class="header-container">
+            <a href="#" class="brand-identity">
+                <img src="assets/images/logo.png" alt="PREVIO" class="nav-logo">
+            </a>
+
+            <!-- Menú Escritorio -->
+            <nav class="nav-menu-desktop">
+                <a href="#concepto" class="nav-anchor">Concepto</a>
+                <a href="#metodo" class="nav-anchor">Método</a>
+                <a href="#servicios" class="nav-anchor">Servicios</a>
+                <a href="#proyectos" class="nav-anchor">Proyectos</a>
+                <a href="#contacto" class="btn-pill-cta">Diagnosticar espacio →</a>
+            </nav>
+
+            <!-- Botón Móvil -->
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir Menú">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENÚ OFF-CANVAS RESPONSIVE -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <div class="drawer-panel">
+            <div class="drawer-header">
+                <img src="assets/images/logo.png" alt="PREVIO" class="drawer-logo">
+                <button class="drawer-close" id="drawerCloseBtn" aria-label="Cerrar">&times;</button>
+            </div>
+            <nav class="drawer-links">
+                <a href="#concepto" class="drawer-link">01. Concepto</a>
+                <a href="#metodo" class="drawer-link">02. Método</a>
+                <a href="#servicios" class="drawer-link">03. Servicios</a>
+                <a href="#proyectos" class="drawer-link">04. Proyectos</a>
+                <a href="#contacto" class="drawer-link highlight">05. Hablemos de tu espacio →</a>
+            </nav>
+            <div class="drawer-footer">
+                <p>Entender antes. Diseñar después.</p>
+                <a href="https://wa.me/34600000000" class="drawer-whatsapp">WhatsApp Directo ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- 01 — EL INICIO (HERO) -->
+        <section class="hero-block">
+            <div class="site-wrapper">
+                <div class="agency-tag-pill reveal-fade">
+                    <span class="pulse-dot"></span> CRITERIO ESPACIAL PREVIO AL DISEÑO
+                </div>
+
+                <h1 class="hero-headline reveal-fade">
+                    ANTES DE DISEÑAR,<br>
+                    <span class="text-outline">HAY QUE ENTENDER.</span>
+                </h1>
+
+                <div class="hero-split-row reveal-fade">
+                    <p class="hero-subtext">
+                        PREVIO desarrolla soluciones para espacios de vivienda y comercio desde una mirada técnica, funcional y estética.
+                    </p>
+                    <div class="hero-action-box">
+                        <a href="#contacto" class="btn-magnetic">
+                            <span class="btn-inner">Hablemos de tu espacio <span>→</span></span>
+                        </a>
+                        <span class="meta-small-caption">Diagnóstico técnico sin decisiones precipitadas</span>
+                    </div>
+                </div>
+
+                <!-- Fotografía: Estado previo en hormigón con planos y muestras -->
+                <div class="hero-showcase reveal-fade">
+                    <div class="showcase-card">
+                        <img src="assets/images/hero-previo.jpg" alt="Espacio en estado previo: arquitectura existente, luz, planos y materiales sobre mesa">
+                        <div class="showcase-badge">
+                            <span class="sc-number">01 / ESTADO BASE</span>
+                            <p>Estructura existente, orientación solar y materialidad sin transformar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARQUEE TICKER (Continuo Mivon) -->
+        <section class="ticker-wrapper" aria-hidden="true">
+            <div class="ticker-track">
+                <div class="ticker-item">ENTENDER ANTES · DISEÑAR DESPUÉS</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">OBSERVAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">ORDENAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">DEFINIR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">ANTICIPAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">TRANSFORMAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">ENTENDER ANTES · DISEÑAR DESPUÉS</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">OBSERVAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">ORDENAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">DEFINIR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">ANTICIPAR</div>
+                <div class="ticker-item sep">◆</div>
+                <div class="ticker-item">TRANSFORMAR</div>
+                <div class="ticker-item sep">◆</div>
+            </div>
+        </section>
+
+        <!-- 02 — PREVIO NO ES SOLO PLANOS (Negro Estructural 20%) -->
+        <section id="concepto" class="manifesto-black-section">
+            <div class="site-wrapper narrow-content text-center">
+                <div class="agency-tag-pill tag-pill-dark reveal-fade">
+                    <span>02 / CONCEPTO FUNDACIONAL</span>
+                </div>
+                <h2 class="display-serif-h2 reveal-fade">
+                    PREVIO es mucho más que planos y medidas.
+                </h2>
+                <p class="lead-light-p reveal-fade">
+                    Es comprender qué necesita un espacio antes de decidir cómo debe verse.
+                </p>
+
+                <!-- Simulación editorial interactiva -->
+                <div class="blueprint-scanner-box reveal-fade">
+                    <div class="scan-laser-bar"></div>
+                    <div class="scan-annotation">
+                        <span class="scan-mono">TRANSICIÓN SUTIL</span>
+                        <p class="scan-flow">PLANO → COMPRENSIÓN → ESPACIO REAL</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 — EL PROBLEMA -->
+        <section class="section-padding problem-section">
+            <div class="site-wrapper">
+                <div class="problem-asymmetric-grid">
+                    <div class="problem-col-info reveal-fade">
+                        <div class="agency-tag-pill">
+                            <span>03 / DIAGNÓSTICO</span>
+                        </div>
+                        <h2 class="section-title">
+                            Un espacio puede tener potencial y aun así no funcionar.
+                        </h2>
+                        
+                        <div class="problem-cards-stack">
+                            <div class="problem-mini-card">
+                                <span class="pm-idx">01</span>
+                                <p>Una distribución que obliga a improvisar diariamente.</p>
+                            </div>
+                            <div class="problem-mini-card">
+                                <span class="pm-idx">02</span>
+                                <p>Un ambiente que se siente más pequeño de lo que realmente es.</p>
+                            </div>
+                            <div class="problem-mini-card">
+                                <span class="pm-idx">03</span>
+                                <p>Un material elegido por apariencia y no por uso.</p>
+                            </div>
+                            <div class="problem-mini-card">
+                                <span class="pm-idx">04</span>
+                                <p>Una decisión tomada demasiado pronto.</p>
+                            </div>
+                        </div>
+
+                        <div class="callout-quote-box">
+                            El problema no siempre es lo que se ve.
+                        </div>
+                    </div>
+
+                    <!-- Imagen: Capas superpuestas de planos técnicos -->
+                    <div class="problem-col-visual reveal-fade">
+                        <div class="editorial-card-frame">
+                            <img src="assets/images/problema-planos.jpg" alt="Planta arquitectónica con elementos superpuestos y circulaciones">
+                            <div class="frame-legend">
+                                <strong>Lectura Técnica:</strong> Capas superpuestas de zonificación, recorridos y mobiliario
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 — CADENCIA SECUENCIAL (Scroll Interactivo) -->
+        <section class="cadence-timeline-section">
+            <div class="central-guide-line"></div>
+            <div class="site-wrapper narrow-content">
+                <div class="cadence-node reveal-fade">
+                    <span class="cadence-sup">Antes del plano,</span>
+                    <h3 class="cadence-title">está la necesidad.</h3>
+                </div>
+                <div class="cadence-node reveal-fade">
+                    <span class="cadence-sup">Antes del material,</span>
+                    <h3 class="cadence-title">está el uso.</h3>
+                </div>
+                <div class="cadence-node reveal-fade">
+                    <span class="cadence-sup">Antes de la forma,</span>
+                    <h3 class="cadence-title">está la función.</h3>
+                </div>
+                <div class="cadence-node reveal-fade">
+                    <span class="cadence-sup">Antes de construir,</span>
+                    <h3 class="cadence-title">está la decisión.</h3>
+                </div>
+                <div class="cadence-node cadence-highlight-node reveal-fade">
+                    <span class="cadence-badge">EL MOMENTO EXACTO</span>
+                    <h2 class="cadence-epic-text">AHÍ EMPIEZA PREVIO.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 a 08 — SISTEMA DE LENGUAJE METODOLÓGICO -->
+        <section id="metodo" class="section-padding methodology-section">
+            <div class="site-wrapper">
+                <div class="section-head-bar reveal-fade">
+                    <div class="agency-tag-pill">SISTEMA METODOLÓGICO</div>
+                    <h2 class="section-title">El pensamiento ordenado en 4 etapas.</h2>
+                </div>
+
+                <div class="stages-flow-list">
+                    <!-- 05 / OBSERVAR -->
+                    <article class="stage-flow-card reveal-fade">
+                        <div class="stage-num-col">
+                            <span class="stage-huge-num">01</span>
+                            <span class="stage-code">PREVIO / OBSERVAR</span>
+                        </div>
+                        <div class="stage-info-col">
+                            <h3 class="stage-name">OBSERVAR</h3>
+                            <p class="stage-desc">Entender cómo se utiliza el espacio, qué ocurre en él y qué necesita realmente. Analizar la luz, los recorridos y las proporciones espaciales existentes.</p>
+                        </div>
+                        <div class="stage-visual-col">
+                            <img src="assets/images/etapa-observar.jpg" alt="01 Observar: espacio real con cinta métrica y planos de análisis">
+                        </div>
+                    </article>
+
+                    <!-- 06 / ORDENAR -->
+                    <article class="stage-flow-card reveal-fade">
+                        <div class="stage-num-col">
+                            <span class="stage-huge-num">02</span>
+                            <span class="stage-code">PREVIO / ORDENAR</span>
+                        </div>
+                        <div class="stage-info-col">
+                            <h3 class="stage-name">ORDENAR</h3>
+                            <p class="stage-desc">Encontrar relaciones entre ambientes, circulaciones, proporciones, usos y elementos existentes a través de planos rigurosamente alineados.</p>
+                        </div>
+                        <div class="stage-visual-col">
+                            <img src="assets/images/etapa-ordenar.jpg" alt="02 Ordenar: planos transparentes superpuestos y alineados">
+                        </div>
+                    </article>
+
+                    <!-- 07 / DEFINIR -->
+                    <article class="stage-flow-card reveal-fade">
+                        <div class="stage-num-col">
+                            <span class="stage-huge-num">03</span>
+                            <span class="stage-code">PREVIO / DEFINIR</span>
+                        </div>
+                        <div class="stage-info-col">
+                            <h3 class="stage-name">DEFINIR</h3>
+                            <p class="stage-desc">Convertir necesidades e ideas en decisiones concretas. Madera, piedra volcánica, metal y textiles calibrados con precisión y sin excesos decorativos.</p>
+                        </div>
+                        <div class="stage-visual-col">
+                            <img src="assets/images/etapa-definir.jpg" alt="03 Definir: bodegón sobrio de madera, piedra, metal y textil navy">
+                        </div>
+                    </article>
+
+                    <!-- 08 / ANTICIPAR -->
+                    <article class="stage-flow-card reveal-fade">
+                        <div class="stage-num-col">
+                            <span class="stage-huge-num">04</span>
+                            <span class="stage-code">PREVIO / ANTICIPAR</span>
+                        </div>
+                        <div class="stage-info-col">
+                            <h3 class="stage-name">ANTICIPAR</h3>
+                            <p class="stage-desc">Visualizar el resultado antes de ejecutarlo. El puente geométrico exacto donde el plano bidimensional continúa naturalmente en el espacio tridimensional.</p>
+                        </div>
+                        <div class="stage-visual-col">
+                            <img src="assets/images/etapa-anticipar.jpg" alt="04 Anticipar: mitad plano técnico con circulaciones y mitad maqueta volumétrica">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 — IMPACTO DE MARCA (Fondo Navy 15%) -->
+        <section class="impact-navy-section">
+            <div class="site-wrapper text-center">
+                <div class="agency-tag-pill tag-pill-dark reveal-fade">
+                    <span>FILOSOFÍA DE CRITERIO</span>
+                </div>
+                <h2 class="impact-quote-title reveal-fade">
+                    No diseñamos para llenar espacios.<br>
+                    <span class="impact-pause-sign">—</span><br>
+                    Diseñamos para resolverlos.
+                </h2>
+                <div class="impact-hairline reveal-fade"></div>
+                <p class="impact-system-text reveal-fade">PREVIO / ENTENDER · ORDENAR · DEFINIR · ANTICIPAR</p>
+            </div>
+        </section>
+
+        <!-- 10 & 11 — SERVICIOS -->
+        <section id="servicios" class="section-padding services-section">
+            <div class="site-wrapper">
+                <div class="section-head-bar reveal-fade">
+                    <div class="agency-tag-pill">RESOLUCIÓN TÉCNICA</div>
+                    <h2 class="section-title">Lo que podemos resolver.</h2>
+                </div>
+
+                <div class="agency-cards-grid">
+                    <div class="service-card-item reveal-fade">
+                        <div class="sc-top">
+                            <span class="sc-index">01</span>
+                            <span class="sc-arrow-btn">↗</span>
+                        </div>
+                        <h3 class="sc-title">DISTRIBUCIÓN ESPACIAL</h3>
+                        <p class="sc-text">Cuando el problema está en cómo funciona el espacio, sus circulaciones y la fluidez de sus áreas.</p>
+                    </div>
+
+                    <div class="service-card-item reveal-fade">
+                        <div class="sc-top">
+                            <span class="sc-index">02</span>
+                            <span class="sc-arrow-btn">↗</span>
+                        </div>
+                        <h3 class="sc-title">DISEÑO DE INTERIORES</h3>
+                        <p class="sc-text">Cuando el espacio necesita una dirección estética sólida, coherencia material y confort ambiental.</p>
+                    </div>
+
+                    <div class="service-card-item reveal-fade">
+                        <div class="sc-top">
+                            <span class="sc-index">03</span>
+                            <span class="sc-arrow-btn">↗</span>
+                        </div>
+                        <h3 class="sc-title">PLANOS Y DOCUMENTACIÓN</h3>
+                        <p class="sc-text">Cuando una idea necesita convertirse en información técnica clara, acotada y constructivamente viable.</p>
+                    </div>
+
+                    <div class="service-card-item reveal-fade">
+                        <div class="sc-top">
+                            <span class="sc-index">04</span>
+                            <span class="sc-arrow-btn">↗</span>
+                        </div>
+                        <h3 class="sc-title">VISUALIZACIÓN ARQUITECTÓNICA</h3>
+                        <p class="sc-text">Cuando necesitas verlo con certeza y rigor volumétrico antes de comprometer obra y presupuesto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12 — PROYECTOS (Problema / Decisión / Resultado) -->
+        <section id="proyectos" class="section-padding projects-section">
+            <div class="site-wrapper">
+                <div class="section-head-bar reveal-fade">
+                    <div class="agency-tag-pill">CASOS DE ESTUDIO</div>
+                    <h2 class="section-title">Espacios pensados antes de ser transformados.</h2>
+                </div>
+
+                <div class="projects-dual-grid">
+                    <!-- 01 / VIVIENDA -->
+                    <article class="project-editorial-card reveal-fade">
+                        <div class="pec-media-wrap">
+                            <img src="assets/images/etapa-observar.jpg" alt="Proyecto Vivienda PREVIO">
+                            <div class="pec-floating-tag">01 / VIVIENDA</div>
+                        </div>
+                        <div class="pec-body">
+                            <h3 class="pec-title">Cuando aprovechar mejor no significa llenar más.</h3>
+                            <div class="case-meta-lines">
+                                <div class="cml-row"><strong>Problema:</strong> Distribución fragmentada y sensación de espacio reducido.</div>
+                                <div class="cml-row"><strong>Decisión:</strong> Reorganización axial basada en recorridos de luz natural.</div>
+                                <div class="cml-row"><strong>Resultado:</strong> Espacio despejado, almacenamiento continuo y serenidad visual.</div>
+                            </div>
+                            <span class="pec-badge">Distribución espacial · Diseño interior</span>
+                        </div>
+                    </article>
+
+                    <!-- 02 / COMERCIAL -->
+                    <article class="project-editorial-card reveal-fade">
+                        <div class="pec-media-wrap">
+                            <img src="assets/images/hero-previo.jpg" alt="Proyecto Comercial PREVIO">
+                            <div class="pec-floating-tag">02 / COMERCIAL</div>
+                        </div>
+                        <div class="pec-body">
+                            <h3 class="pec-title">Una distribución también cambia la percepción del espacio.</h3>
+                            <div class="case-meta-lines">
+                                <div class="cml-row"><strong>Problema:</strong> Cuello de botella en accesos y permanencia incómoda de usuarios.</div>
+                                <div class="cml-row"><strong>Decisión:</strong> Desplazamiento lineal de la atención y luz focal perimetral.</div>
+                                <div class="cml-row"><strong>Resultado:</strong> Fluidez operativa inmediata sin perder calidez de estancia.</div>
+                            </div>
+                            <span class="pec-badge">Diseño interior · Visualización</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13 — ANTES / DESPUÉS (SLIDER INTERACTIVO CON FOTOS PREVIO) -->
+        <section class="section-padding slider-stage-section">
+            <div class="site-wrapper">
+                <div class="narrow-content text-center reveal-fade">
+                    <div class="agency-tag-pill tag-pill-dark">COMPROBACIÓN ESPACIAL</div>
+                    <h2 class="display-serif-h2 text-cream">No todo cambio empieza derribando paredes.</h2>
+                    <p class="lead-light-p text-cream-sub">
+                        Desplaza el divisor para comprobar la transición entre el análisis previo y la intervención resuelta.
+                    </p>
+                </div>
+
+                <div class="interactive-slider-box reveal-fade" id="touchSliderFrame">
+                    <!-- Propuesta / Transformación (Capa Base) -->
+                    <img src="assets/images/etapa-observar.jpg" alt="Propuesta PREVIO resuelta" class="slider-bg-img">
+                    
+                    <!-- Estado Inicial / Plano (Capa Recortada) -->
+                    <div class="slider-overlay-clip" id="sliderClipArea">
+                        <img src="assets/images/hero-previo.jpg" alt="Estado original en bruto" class="slider-fg-img" id="sliderBeforeImg">
+                    </div>
+
+                    <!-- Divisor -->
+                    <div class="slider-drag-bar" id="sliderDividerHandle">
+                        <div class="drag-button-indicator">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16l-4-4m0 0l4-4m-4 4h18m-4 4l4-4m0 0l-4-4"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14 — QUÉ RECIBE EL CLIENTE -->
+        <section class="section-padding deliverables-section">
+            <div class="site-wrapper">
+                <div class="deliverables-agency-card reveal-fade">
+                    <div class="deliv-intro">
+                        <span class="deliv-sup">ENTREGABLES CONCRETOS</span>
+                        <h3 class="deliv-main-h3">Del problema a una decisión clara.</h3>
+                    </div>
+
+                    <div class="deliv-quad-grid">
+                        <div class="deliv-unit">
+                            <span class="du-number">01</span>
+                            <h4>Una lectura del espacio</h4>
+                            <p>Qué funciona, qué limita y qué oportunidades reales existen en tu inmueble.</p>
+                        </div>
+                        <div class="deliv-unit">
+                            <span class="du-number">02</span>
+                            <h4>Una propuesta con dirección</h4>
+                            <p>Decisiones conectadas entre sí, no una colección aislada de referencias visuales.</p>
+                        </div>
+                        <div class="deliv-unit">
+                            <span class="du-number">03</span>
+                            <h4>Información para avanzar</h4>
+                            <p>Planos acotados, especificaciones y criterios según las necesidades de tu proyecto.</p>
+                        </div>
+                        <div class="deliv-unit">
+                            <span class="du-number">04</span>
+                            <h4>Una visión anticipada</h4>
+                            <p>Comprender con exactitud el resultado final antes de ejecutar cualquier reforma.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15, 16 & 17 — FILTRO, SORPRESA FINAL Y CONTACTO -->
+        <section id="contacto" class="section-padding final-conversion-section">
+            <div class="site-wrapper narrow-content">
+                
+                <!-- Sorpresa Conceptual Final -->
+                <div class="transform-climax-block text-center reveal-fade">
+                    <div class="process-breadcrumb">
+                        <span>OBSERVAR</span> → <span>ORDENAR</span> → <span>DEFINIR</span> → <span>ANTICIPAR</span>
+                    </div>
+                    <h2 class="headline-transform">TRANSFORMAR.</h2>
+                    <p class="transform-clarification">
+                        Porque cuando una decisión está bien pensada, transformar es el siguiente paso.
+                    </p>
+                </div>
+
+                <!-- 15: ¿Para quién es? -->
+                <div class="audience-filter-box reveal-fade">
+                    <h4 class="af-title">PREVIO puede ser para ti si...</h4>
+                    <ul class="af-list">
+                        <li>Tienes un espacio y no sabes por dónde empezar.</li>
+                        <li>Quieres remodelar, pero necesitas ordenar las decisiones antes de gastar.</li>
+                        <li>Tienes una vivienda nueva y quieres definirla desde cero con criterio.</li>
+                        <li>Tienes un negocio y necesitas que el espacio funcione mejor operativamente.</li>
+                        <li>Ya tienes una idea, pero necesitas convertirla en una propuesta concreta.</li>
+                    </ul>
+                    <div class="af-reassurance">
+                        No necesitas tener todo resuelto para empezar.
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="agency-contact-card reveal-fade">
+                    <div class="form-header-intro">
+                        <span class="form-pill-tag">DIAGNÓSTICO INICIAL</span>
+                        <h3 class="form-title-h3">¿Qué necesita tu espacio antes de transformarse?</h3>
+                        <p class="form-sub-text">Cuéntame qué espacio tienes, qué quieres resolver y en qué punto se encuentra tu proyecto.</p>
+                    </div>
+
+                    <form id="agencyContactForm" class="clean-agency-form">
+                        <div class="form-double-col">
+                            <div class="form-field">
+                                <label for="clientName">Nombre Completo</label>
+                                <input type="text" id="clientName" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="clientEmail">Correo Electrónico</label>
+                                <input type="email" id="clientEmail" name="email" placeholder="correo@ejemplo.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="spaceDetails">Cuéntame sobre tu espacio</label>
+                            <textarea id="spaceDetails" name="message" rows="4" placeholder="Tipo de espacio, metraje aproximado o qué decisiones necesitas ordenar..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-mivon">
+                            <span>Hablemos de tu proyecto</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <div id="contactStatusMessage" class="form-status-alert"></div>
+                    </form>
+
+                    <!-- WhatsApp Directo -->
+                    <div class="whatsapp-direct-box text-center">
+                        <span class="wa-label">¿Prefieres una consulta directa?</span>
+                        <a href="https://wa.me/34600000000?text=Hola%20PREVIO,%20necesito%20criterio%20para%20mi%20espacio." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-pill">
+                            Escribir por WhatsApp Directo ↗
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-agency-footer">
+        <div class="site-wrapper">
+            <div class="footer-core-grid">
+                <div class="fc-col-brand">
+                    <img src="assets/images/logo.png" alt="PREVIO" class="footer-logo">
+                    <p class="footer-moto">Entender antes. Diseñar después.</p>
+                </div>
+                <div class="fc-col-copy">
+                    <p>© PREVIO. Criterio, interpretación espacial y atención al detalle.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de interactividad -->
+    <script src="js/main.js"></script>
+</body>
+</html>
