@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREVIO — Diseño Arquitectónico e Interiorismo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#071e51',      // Color 1: Azul Noche profundo
+                        ochre: '#c19152',     // Color 2: Ocre cálido / Bronce arquitectónico
+                        alabaster: '#f2eee9', // Color 3: Alabastro / Off-white cálido
+                        concrete: '#bababa',  // Color 4: Gris neutro hormigón
+                        ebony: '#1d1e1a',     // Color 5: Carbón oscuro profundo
+                    },
+                    fontFamily: {
+                        display: ['"Special Gothic Expanded One"', '"Dela Gothic One"', 'sans-serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        architectural: '0.25em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base de estilo editorial y smooth scroll */
+        body {
+            background-color: #1d1e1a;
+            color: #f2eee9;
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar arquitectónica */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1d1e1a; }
+        ::-webkit-scrollbar-thumb { background: #c19152; border-radius: 3px; }
+
+        /* Marquee infinito */
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+        }
+        .marquee-track {
+            display: flex;
+            flex-shrink: 0;
+            white-space: nowrap;
+            animation: marqueeScroll 24s linear infinite;
+        }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* Revelado cinemático con scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Retículas y líneas sutiles */
+        .border-grid {
+            border-color: rgba(186, 186, 186, 0.18);
+        }
+
+        /* Efecto zoom suave para imágenes */
+        .img-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-zoom {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-container:hover .img-zoom {
+            transform: scale(1.04);
+        }
+
+        /* === EFECTO DE TARJETAS APILADAS (STACKED CARDS) === */
+        .stacked-cards-wrapper {
+            position: relative;
+            padding-bottom: 10vh; 
+        }
+
+        .stacked-card {
+            position: sticky;
+            top: 15vh; 
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+            border-top: 1px solid rgba(193, 145, 82, 0.3);
+        }
+
+        #service-card-1 { z-index: 10; background-color: #141512; }
+        #service-card-2 { z-index: 20; background-color: #1d1e1a; top: calc(15vh + 30px); }
+        #service-card-3 { z-index: 30; background-color: #141512; top: calc(15vh + 60px); }
+        #service-card-4 { z-index: 40; background-color: #1d1e1a; top: calc(15vh + 90px); }
+
+        /* === NUEVO: PARALLAX CON BLUR === */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            /* Fija la imagen respecto al viewport */
+            background-attachment: fixed; 
+            background-image: url('manififesto.jfif');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* Aplica el blur */
+            filter: blur(5px);
+            /* Escala un poco para que los bordes borrosos no revelen el fondo detrás */
+            transform: scale(1.1);
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-color: rgba(7, 30, 81, 0.85); /* Navy de tu paleta con opacidad para contraste */
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+        }
+        /* === PARALLAX CON BLUR === */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            /* Fija la imagen para el parallax */
+            background-attachment: fixed; 
+            background-image: url('manififesto.jfif');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* Aplica el blur */
+            filter: blur(6px);
+            /* Escala para evitar bordes blancos por el blur */
+            transform: scale(1.1);
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            /* El color Navy (#071e51) de tu paleta, con 85% de opacidad */
+            background-color: rgba(7, 30, 81, 0.85); 
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="selection:bg-ochre selection:text-ebony">
+
+    <!-- NAVBAR STICKY -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 md:h-24 flex items-center justify-between relative z-50">
+            <a href="#inicio" class="font-display text-xl md:text-2xl tracking-widest text-alabaster hover:text-ochre transition-colors drop-shadow-md">
+                PREVIO
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-10 text-xs uppercase tracking-architectural text-alabaster font-medium">
+                <a href="#inicio" class="hover:text-ochre drop-shadow-md transition-colors">Inicio</a>
+                <a href="#proyectos" class="hover:text-ochre drop-shadow-md transition-colors">Proyectos</a>
+                <a href="#presentacion" class="hover:text-ochre drop-shadow-md transition-colors">Filosofía</a>
+                <a href="#servicios" class="hover:text-ochre drop-shadow-md transition-colors">Servicios</a>
+                <a href="#proceso" class="hover:text-ochre drop-shadow-md transition-colors">Proceso</a>
+                <a href="#contacto" class="text-alabaster border border-alabaster/50 backdrop-blur-sm px-4 py-2 hover:border-ochre hover:text-ochre transition-all">Contacto</a>
+            </nav>
+
+            <button id="mobileMenuBtn" class="md:hidden text-alabaster focus:outline-none drop-shadow-md" aria-label="Abrir Menú">
+                <span class="text-xs uppercase tracking-architectural font-medium">Menú</span>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-ebony/98 backdrop-blur-md border-b border-grid px-6 py-8 space-y-6 text-sm uppercase tracking-architectural">
+            <a href="#inicio" class="block text-concrete hover:text-ochre mobile-link">Inicio</a>
+            <a href="#proyectos" class="block text-concrete hover:text-ochre mobile-link">Proyectos</a>
+            <a href="#presentacion" class="block text-concrete hover:text-ochre mobile-link">Filosofía</a>
+            <a href="#servicios" class="block text-concrete hover:text-ochre mobile-link">Servicios</a>
+            <a href="#proceso" class="block text-concrete hover:text-ochre mobile-link">Proceso</a>
+            <a href="#contacto" class="block text-ochre mobile-link">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 01. HERO -->
+        <section id="inicio" class="min-h-screen flex flex-col justify-center pt-28 pb-16 px-6 md:px-12 relative overflow-hidden">
+            <div class="absolute inset-0 w-full h-full z-0">
+                <video autoplay loop muted playsinline class="object-cover w-full h-full object-center opacity-80">
+                    <source src="fondo.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-ebony/80 via-ebony/40 to-ebony/95"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10 w-full reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-ochre font-display text-sm tracking-wider">01</span>
+                    <span class="w-8 h-[1px] bg-ochre/60"></span>
+                    <span class="text-alabaster text-xs uppercase tracking-architectural">La primera impresión</span>
+                </div>
+
+                <h1 class="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight mb-10 text-alabaster max-w-5xl drop-shadow-lg">
+                    Los espacios también se piensan antes de construirse.
+                </h1>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end pt-4 border-t border-alabaster/20">
+                    <div class="md:col-span-8">
+                        <p class="text-alabaster text-base md:text-xl font-light leading-relaxed max-w-2xl mb-4 drop-shadow-md">
+                            <strong class="font-normal">PREVIO</strong> nace de una idea sencilla: un buen espacio no depende de llenar una habitación de elementos, sino de entender qué necesita, cómo se va a vivir y qué debe permanecer.
+                        </p>
+                        <p class="text-alabaster/80 text-sm md:text-base font-light leading-relaxed max-w-2xl drop-shadow-md">
+                            Diseñamos interiores y espacios arquitectónicos con una mirada precisa sobre la distribución, los materiales, la iluminación y cada decisión que construye la experiencia.
+                        </p>
+                    </div>
+
+                    <div class="md:col-span-4 flex flex-col sm:flex-row md:flex-col gap-4">
+                        <a href="#presentacion" class="inline-flex items-center justify-center bg-alabaster/95 backdrop-blur-sm text-ebony text-xs uppercase tracking-architectural font-medium px-8 py-4 hover:bg-ochre hover:text-ebony transition-colors duration-300">
+                            Conocer PREVIO
+                        </a>
+                        <a href="#proyectos" class="inline-flex items-center justify-center border border-alabaster/40 backdrop-blur-sm text-alabaster text-xs uppercase tracking-architectural font-medium px-8 py-4 hover:border-ochre hover:text-ochre transition-colors duration-300">
+                            Ver proyectos ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. FRANJA DE IDENTIDAD -->
+        <section class="border-y border-grid bg-ebony py-6 md:py-8 overflow-hidden relative z-10">
+            <div class="marquee-container">
+                <div class="marquee-track flex items-center gap-8 font-display text-2xl md:text-4xl text-transparent tracking-wide" style="-webkit-text-stroke: 1px rgba(186, 186, 186, 0.4);">
+                    <span>DISTRIBUCIÓN</span> <span class="text-ochre">·</span>
+                    <span>MATERIALIDAD</span> <span class="text-ochre">·</span>
+                    <span>PROPORCIÓN</span> <span class="text-ochre">·</span>
+                    <span>ILUMINACIÓN</span> <span class="text-ochre">·</span>
+                    <span>FUNCIONALIDAD</span> <span class="text-ochre">·</span>
+                    <span>DETALLE</span> <span class="text-ochre">·</span>
+                    <span>ATMÓSFERA</span> <span class="text-ochre">·</span>
+                    <span>ESPACIOS</span> <span class="text-ochre">·</span>
+                    <span>LUZ</span> <span class="text-ochre">·</span>
+                </div>
+                <div class="marquee-track flex items-center gap-8 font-display text-2xl md:text-4xl text-transparent tracking-wide" style="-webkit-text-stroke: 1px rgba(186, 186, 186, 0.4);" aria-hidden="true">
+                    <span>DISTRIBUCIÓN</span> <span class="text-ochre">·</span>
+                    <span>MATERIALIDAD</span> <span class="text-ochre">·</span>
+                    <span>PROPORCIÓN</span> <span class="text-ochre">·</span>
+                    <span>ILUMINACIÓN</span> <span class="text-ochre">·</span>
+                    <span>FUNCIONALIDAD</span> <span class="text-ochre">·</span>
+                    <span>DETALLE</span> <span class="text-ochre">·</span>
+                    <span>ATMÓSFERA</span> <span class="text-ochre">·</span>
+                    <span>ESPACIOS</span> <span class="text-ochre">·</span>
+                    <span>LUZ</span> <span class="text-ochre">·</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. PROYECTOS -->
+        <section id="proyectos" class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="mb-16 md:mb-24 reveal">
+                <span class="text-ochre text-xs uppercase tracking-architectural block mb-3">Portafolio Seleccionado</span>
+                <h2 class="font-display text-2xl sm:text-4xl md:text-6xl text-alabaster mb-6">
+                    Cada proyecto empieza con una pregunta.
+                </h2>
+                <p class="text-concrete text-base md:text-lg font-light max-w-2xl leading-relaxed">
+                    ¿Qué necesita realmente este espacio? ¿Cómo se mueve una persona en él? ¿Qué debe sentirse al entrar? El portafolio demuestra una decisión, una transformación y una manera de resolver el espacio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <!-- 01 -->
+                <article class="reveal group cursor-pointer" onclick="openProjectModal('Casa Umbral', '01 / RESIDENCIAL', 'Un interior pensado para conectar las áreas sociales, aprovechar la luz y construir una atmósfera cálida sin perder claridad.', 'Diseño interior · Distribución · Materiales')">
+                    <div class="img-container aspect-[4/3] bg-navy/40 border border-grid mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ebony via-transparent to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full bg-[#141512] img-zoom flex items-center justify-center p-8">
+                            <div class="w-full h-full border border-grid/40 flex flex-col justify-between p-6">
+                                <span class="text-xs font-mono text-concrete/40">PLANO DE DISTRIBUCIÓN // NIVEL 01</span>
+                                <div class="space-y-2">
+                                    <div class="w-3/4 h-[1px] bg-ochre/30"></div>
+                                    <div class="w-1/2 h-[1px] bg-concrete/20"></div>
+                                </div>
+                                <span class="font-display text-xs text-ochre tracking-widest uppercase">Eje de luz natural</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <span class="text-xs uppercase tracking-architectural text-ochre">01 / Residencial</span>
+                        <span class="text-xs text-concrete uppercase tracking-wider">Ver Ficha ↗</span>
+                    </div>
+                    <h3 class="font-display text-2xl md:text-3xl text-alabaster group-hover:text-ochre transition-colors mb-3">Casa Umbral</h3>
+                    <p class="text-concrete text-sm font-light leading-relaxed mb-4">Un interior pensado para conectar las áreas sociales, aprovechar la luz y construir una atmósfera cálida sin perder claridad.</p>
+                </article>
+
+                <!-- 02 -->
+                <article class="reveal group cursor-pointer md:mt-16" onclick="openProjectModal('Local Nudo', '02 / COMERCIAL', 'Una propuesta para organizar el recorrido, mejorar la percepción del espacio y darle identidad al lugar sin sobrecargarlo.', 'Concepto espacial · Interiorismo · Materialidad')">
+                    <div class="img-container aspect-[4/3] bg-navy/40 border border-grid mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ebony via-transparent to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full bg-[#141512] img-zoom flex items-center justify-center p-8">
+                            <div class="w-full h-full border border-grid/40 flex flex-col justify-between p-6">
+                                <span class="text-xs font-mono text-concrete/40">RECORRIDO ESPACIAL // ACCESO</span>
+                                <div class="w-12 h-12 rounded-full border border-ochre/40 self-center"></div>
+                                <span class="font-display text-xs text-ochre tracking-widest uppercase">Circulación continua</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <span class="text-xs uppercase tracking-architectural text-ochre">02 / Comercial</span>
+                        <span class="text-xs text-concrete uppercase tracking-wider">Ver Ficha ↗</span>
+                    </div>
+                    <h3 class="font-display text-2xl md:text-3xl text-alabaster group-hover:text-ochre transition-colors mb-3">Local Nudo</h3>
+                    <p class="text-concrete text-sm font-light leading-relaxed mb-4">Una propuesta para organizar el recorrido, mejorar la percepción del espacio y darle identidad al lugar sin sobrecargarlo.</p>
+                </article>
+
+                <!-- 03 -->
+                <article class="reveal group cursor-pointer md:col-span-2 md:w-3/4 mx-auto md:mt-12" onclick="openProjectModal('Proyecto Límite', '03 / VIVIENDA', 'Una intervención que parte de lo existente para encontrar una distribución más útil, coherente y habitable.', 'Remodelación · Planificación · Diseño interior')">
+                    <div class="img-container aspect-[16/9] bg-navy/40 border border-grid mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ebony via-transparent to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full bg-[#141512] img-zoom flex items-center justify-center p-8">
+                            <div class="w-full h-full border border-grid/40 flex flex-col justify-between p-8">
+                                <span class="text-xs font-mono text-concrete/40">INTERVENCIÓN ESTRUCTURAL // PREEXISTENCIA</span>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="h-1 bg-ochre/40"></div>
+                                    <div class="h-1 bg-concrete/20"></div>
+                                    <div class="h-1 bg-ochre/40"></div>
+                                </div>
+                                <span class="font-display text-xs text-ochre tracking-widest uppercase">Optimización de metros cuadrados</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-2">
+                        <span class="text-xs uppercase tracking-architectural text-ochre">03 / Vivienda</span>
+                        <span class="text-xs text-concrete uppercase tracking-wider">Ver Ficha ↗</span>
+                    </div>
+                    <h3 class="font-display text-2xl md:text-4xl text-alabaster group-hover:text-ochre transition-colors mb-3">Proyecto Límite</h3>
+                    <p class="text-concrete text-sm md:text-base font-light leading-relaxed mb-4">Una intervención que parte de lo existente para encontrar una distribución más útil, coherente y habitable.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 04. PRESENTACIÓN / MANIFIESTO (CON PARALLAX BLUR) -->
+        <section id="presentacion" class="py-24 md:py-36 border-y border-grid parallax-section text-alabaster">
+            
+            <!-- Contenedor del fondo parallax -->
+            <div class="parallax-bg"></div>
+            
+            <!-- Overlay oscuro de contraste (Navy) -->
+            <div class="parallax-overlay"></div>
+
+            <!-- Contenido textual asegurado al frente -->
+            <div class="parallax-content max-w-5xl mx-auto px-6 md:px-12 text-center reveal">
+                <span class="text-ochre text-xs uppercase tracking-architectural block mb-6 drop-shadow-md">
+                    Manifiesto & Criterio
+                </span>
+                
+                <h2 class="font-display text-2xl sm:text-4xl md:text-6xl font-normal mb-10 leading-tight drop-shadow-lg">
+                    Antes de elegir un acabado, hay que entender el espacio.
+                </h2>
+                
+                <!-- Línea separadora ocre -->
+                <div class="w-16 h-[2px] bg-ochre mx-auto mb-10 shadow-sm"></div>
+                
+                <p class="text-lg md:text-2xl font-light leading-relaxed mb-8 drop-shadow-md text-alabaster">
+                    PREVIO es una marca de diseño de interiores y espacios arquitectónicos que trabaja desde la observación, la proporción y la funcionalidad.
+                </p>
+                
+                <p class="text-alabaster/90 text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto drop-shadow-md">
+                    Nos interesa que cada decisión tenga una razón: que la distribución facilite la vida cotidiana, que los materiales respondan al uso y que la estética no esté separada de lo que el espacio necesita. No se trata de imponer un estilo. Se trata de encontrar una solución que tenga sentido para cada proyecto.
+                </p>
+            </div>
+        </section>
+
+        <!-- 05. CIFRAS -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto border-b border-grid">
+            <div class="mb-16 md:mb-20 reveal">
+                <h3 class="font-display text-2xl sm:text-4xl text-alabaster">
+                    El detalle no es una etapa. <br>Es parte del proceso.
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="reveal border-t border-grid pt-6" style="transition-delay: 0.1s;">
+                    <span class="font-display text-4xl text-ochre block mb-4">01</span>
+                    <h4 class="text-base uppercase tracking-wider text-alabaster font-medium mb-3">Una mirada integral</h4>
+                    <p class="text-concrete text-sm font-light leading-relaxed">Del concepto general a las decisiones que hacen que el espacio funcione.</p>
+                </div>
+                <div class="reveal border-t border-grid pt-6" style="transition-delay: 0.2s;">
+                    <span class="font-display text-4xl text-ochre block mb-4">02</span>
+                    <h4 class="text-base uppercase tracking-wider text-alabaster font-medium mb-3">Decisiones con propósito</h4>
+                    <p class="text-concrete text-sm font-light leading-relaxed">Distribución, materiales y detalles que responden a una necesidad.</p>
+                </div>
+                <div class="reveal border-t border-grid pt-6" style="transition-delay: 0.3s;">
+                    <span class="font-display text-4xl text-ochre block mb-4">03</span>
+                    <h4 class="text-base uppercase tracking-wider text-alabaster font-medium mb-3">Claridad en el proceso</h4>
+                    <p class="text-concrete text-sm font-light leading-relaxed">Una forma ordenada de avanzar desde la idea hasta la propuesta.</p>
+                </div>
+                <div class="reveal border-t border-grid pt-6" style="transition-delay: 0.4s;">
+                    <span class="font-display text-4xl text-ochre block mb-4">04</span>
+                    <h4 class="text-base uppercase tracking-wider text-alabaster font-medium mb-3">Espacios que permanecen</h4>
+                    <p class="text-concrete text-sm font-light leading-relaxed">Diseño pensado para el uso, no solo para la primera impresión.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. SERVICIOS / STACKED CARDS -->
+        <section id="servicios" class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="mb-12 md:mb-16 reveal">
+                <span class="text-ochre text-xs uppercase tracking-architectural block mb-3">Alcance y Servicios</span>
+                <h2 class="font-display text-2xl sm:text-4xl md:text-5xl text-alabaster">
+                    Diseñar un espacio es tomar decisiones en el orden correcto.
+                </h2>
+            </div>
+
+            <div class="stacked-cards-wrapper">
+                <div id="service-card-1" class="stacked-card py-12 md:py-16 px-6 md:px-12 rounded-t-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                        <div class="md:col-span-2">
+                            <span class="font-display text-3xl md:text-5xl text-ochre opacity-50">001</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl text-alabaster mb-3">Diseño de interiores</h3>
+                            <p class="text-xs uppercase tracking-wider text-concrete/70">Residencial & Comercial</p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <p class="text-concrete text-sm md:text-base font-light leading-relaxed mb-6">Propuestas para viviendas, apartamentos y espacios comerciales que buscan equilibrio entre uso, estética y materialidad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="service-card-2" class="stacked-card py-12 md:py-16 px-6 md:px-12 rounded-t-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                        <div class="md:col-span-2">
+                            <span class="font-display text-3xl md:text-5xl text-ochre opacity-50">002</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl text-alabaster mb-3">Diseño de espacios</h3>
+                            <p class="text-xs uppercase tracking-wider text-concrete/70">Concepto & Identidad</p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <p class="text-concrete text-sm md:text-base font-light leading-relaxed mb-6">Desarrollo de propuestas para espacios que necesitan una identidad clara y una organización coherente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="service-card-3" class="stacked-card py-12 md:py-16 px-6 md:px-12 rounded-t-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                        <div class="md:col-span-2">
+                            <span class="font-display text-3xl md:text-5xl text-ochre opacity-50">003</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl text-alabaster mb-3">Remodelación y adecuación</h3>
+                            <p class="text-xs uppercase tracking-wider text-concrete/70">Intervención & Optimización</p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <p class="text-concrete text-sm md:text-base font-light leading-relaxed mb-6">Revisión de lo existente para encontrar oportunidades de mejora en distribución, acabados y funcionamiento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="service-card-4" class="stacked-card py-12 md:py-16 px-6 md:px-12 rounded-t-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                        <div class="md:col-span-2">
+                            <span class="font-display text-3xl md:text-5xl text-ochre opacity-50">004</span>
+                        </div>
+                        <div class="md:col-span-5">
+                            <h3 class="font-display text-2xl md:text-3xl text-alabaster mb-3">Desarrollo de propuestas</h3>
+                            <p class="text-xs uppercase tracking-wider text-concrete/70">Documentación & Ejecución</p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <p class="text-concrete text-sm md:text-base font-light leading-relaxed mb-6">Documentación visual y técnica para comunicar una idea con claridad y facilitar su ejecución.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. METODOLOGÍA -->
+        <section id="proceso" class="py-24 md:py-36 bg-alabaster text-ebony">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="mb-16 md:mb-24 reveal">
+                    <span class="text-ochre text-xs uppercase tracking-architectural font-medium block mb-3">Metodología de trabajo</span>
+                    <h2 class="font-display text-2xl sm:text-4xl md:text-5xl text-ebony">
+                        Del primer recorrido a una propuesta que tiene sentido.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 border-t border-concrete/40 pt-10">
+                    <div class="reveal">
+                        <span class="font-display text-2xl text-ochre block mb-4">01</span>
+                        <h4 class="font-display text-xl mb-3 text-ebony">Observar</h4>
+                        <p class="text-ebony/80 text-sm font-light leading-relaxed">Entender el espacio, sus condiciones, sus necesidades y la manera en que será utilizado.</p>
+                    </div>
+                    <div class="reveal" style="transition-delay: 0.1s;">
+                        <span class="font-display text-2xl text-ochre block mb-4">02</span>
+                        <h4 class="font-display text-xl mb-3 text-ebony">Definir</h4>
+                        <p class="text-ebony/80 text-sm font-light leading-relaxed">Establecer qué debe resolver el proyecto y qué criterios van a orientar las decisiones.</p>
+                    </div>
+                    <div class="reveal" style="transition-delay: 0.2s;">
+                        <span class="font-display text-2xl text-ochre block mb-4">03</span>
+                        <h4 class="font-display text-xl mb-3 text-ebony">Proponer</h4>
+                        <p class="text-ebony/80 text-sm font-light leading-relaxed">Explorar distribuciones, materiales y soluciones hasta encontrar una dirección coherente.</p>
+                    </div>
+                    <div class="reveal" style="transition-delay: 0.3s;">
+                        <span class="font-display text-2xl text-ochre block mb-4">04</span>
+                        <h4 class="font-display text-xl mb-3 text-ebony">Precisar</h4>
+                        <p class="text-ebony/80 text-sm font-light leading-relaxed">Dar forma a la propuesta mediante planos, visualizaciones y decisiones de detalle.</p>
+                    </div>
+                    <div class="reveal" style="transition-delay: 0.4s;">
+                        <span class="font-display text-2xl text-ochre block mb-4">05</span>
+                        <h4 class="font-display text-xl mb-3 text-ebony">Desarrollar</h4>
+                        <p class="text-ebony/80 text-sm font-light leading-relaxed">Dejar una propuesta clara, consistente y lista para avanzar hacia su ejecución.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. FRANJA DE TRANSICIÓN / UNA PAUSA VISUAL -->
+        <section class="py-24 md:py-36 bg-navy text-center px-6 border-y border-grid relative overflow-hidden">
+            <div class="max-w-4xl mx-auto reveal relative z-10">
+                <h2 class="font-display text-3xl sm:text-5xl md:text-6xl text-alabaster tracking-wide mb-6">
+                    Materia, luz y proporción.
+                </h2>
+                <p class="text-concrete text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
+                    Los elementos que construyen la atmósfera de un espacio también pueden convertirse en parte del lenguaje visual de la marca.
+                </p>
+            </div>
+        </section>
+
+        <!-- 09. CRITERIO & 10. EQUIPO -->
+        <section class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-b border-grid">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+                <div class="lg:col-span-7 reveal">
+                    <span class="text-ochre text-xs uppercase tracking-architectural block mb-4">Principios de Diseño</span>
+                    <h3 class="font-display text-2xl sm:text-4xl text-alabaster mb-6">No todo lo que cabe en un espacio necesita estar en él.</h3>
+                    <p class="text-concrete font-light text-base md:text-lg leading-relaxed mb-10">
+                        En PREVIO, el diseño parte de una búsqueda de equilibrio: que cada elemento tenga una función, que los materiales dialoguen entre sí y que la estética acompañe la forma en que se vive el lugar.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="border-l border-ochre pl-4">
+                            <h4 class="font-display text-base text-alabaster mb-2">Funcionalidad</h4>
+                            <p class="text-concrete text-xs md:text-sm font-light leading-relaxed">El espacio debe responder a las necesidades reales de quienes lo utilizan.</p>
+                        </div>
+                        <div class="border-l border-ochre pl-4">
+                            <h4 class="font-display text-base text-alabaster mb-2">Proporción</h4>
+                            <p class="text-concrete text-xs md:text-sm font-light leading-relaxed">Las dimensiones, los vacíos y las relaciones entre elementos importan tanto como los objetos.</p>
+                        </div>
+                        <div class="border-l border-ochre pl-4">
+                            <h4 class="font-display text-base text-alabaster mb-2">Materialidad</h4>
+                            <p class="text-concrete text-xs md:text-sm font-light leading-relaxed">Los materiales aportan textura, carácter y permanencia; su elección debe tener sentido.</p>
+                        </div>
+                        <div class="border-l border-ochre pl-4">
+                            <h4 class="font-display text-base text-alabaster mb-2">Claridad</h4>
+                            <p class="text-concrete text-xs md:text-sm font-light leading-relaxed">Una propuesta bien pensada permite entender el espacio antes de ejecutarlo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 reveal bg-[#141512] border border-grid p-8 md:p-12 flex flex-col justify-between">
+                    <div>
+                        <span class="text-ochre text-xs uppercase tracking-architectural block mb-4">PREVIO / Dirección de Diseño</span>
+                        <h4 class="font-display text-xl md:text-2xl text-alabaster mb-6">Una forma de mirar antes de intervenir.</h4>
+                        <p class="text-concrete text-sm font-light leading-relaxed mb-6">Detrás de PREVIO hay una mirada orientada a entender los espacios, interpretar sus posibilidades y convertir esa lectura en propuestas claras, funcionales y bien resueltas.</p>
+                    </div>
+                    <div class="pt-8 mt-8 border-t border-grid flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-architectural text-concrete">Criterio & Práctica</span>
+                        <span class="font-display text-sm text-ochre">PREVIO ARCH</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. TESTIMONIOS -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto text-center reveal">
+            <span class="text-ochre text-xs uppercase tracking-architectural block mb-8">El resultado también se mide en cómo se vive el espacio.</span>
+            <blockquote class="font-sans text-xl sm:text-2xl md:text-3xl font-light text-alabaster leading-relaxed mb-8 max-w-4xl mx-auto italic">
+                “Lo más valioso fue poder entender cómo iba a funcionar el espacio antes de tomar decisiones. La propuesta nos permitió ver posibilidades que no habíamos considerado.”
+            </blockquote>
+            <div class="text-xs uppercase tracking-architectural text-concrete">
+                Cliente de proyecto residencial — <span class="text-ochre">Nombre y proyecto real</span>
+            </div>
+        </section>
+
+        <!-- 12. DIARIO -->
+        <section class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-grid">
+            <div class="mb-16 md:mb-20 reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="text-ochre text-xs uppercase tracking-architectural block mb-3">Reflexiones y Artículos</span>
+                    <h2 class="font-display text-2xl sm:text-4xl text-alabaster">Pensar el espacio también es parte del trabajo.</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <article class="reveal group cursor-pointer border-t border-grid pt-8 hover:border-ochre transition-colors">
+                    <span class="font-mono text-xs text-ochre block mb-4">01 / MATERIALIDAD</span>
+                    <h3 class="font-display text-xl text-alabaster group-hover:text-ochre transition-colors mb-3">Elegir materiales no es solo elegir acabados.</h3>
+                    <p class="text-concrete text-sm font-light leading-relaxed">Cómo la textura, la luz y el uso cambian la percepción de un espacio.</p>
+                </article>
+
+                <article class="reveal group cursor-pointer border-t border-grid pt-8 hover:border-ochre transition-colors" style="transition-delay: 0.1s;">
+                    <span class="font-mono text-xs text-ochre block mb-4">02 / DISTRIBUCIÓN</span>
+                    <h3 class="font-display text-xl text-alabaster group-hover:text-ochre transition-colors mb-3">Cuando una planta empieza a tener sentido.</h3>
+                    <p class="text-concrete text-sm font-light leading-relaxed">La importancia de organizar los recorridos y las relaciones entre los ambientes.</p>
+                </article>
+
+                <article class="reveal group cursor-pointer border-t border-grid pt-8 hover:border-ochre transition-colors" style="transition-delay: 0.2s;">
+                    <span class="font-mono text-xs text-ochre block mb-4">03 / ATMÓSFERA</span>
+                    <h3 class="font-display text-xl text-alabaster group-hover:text-ochre transition-colors mb-3">La luz también diseña.</h3>
+                    <p class="text-concrete text-sm font-light leading-relaxed">Cómo la iluminación modifica la experiencia de un espacio sin añadir elementos.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 13. CONTACTO -->
+        <section id="contacto" class="py-24 md:py-36 bg-alabaster text-ebony border-t border-grid relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-6 reveal">
+                    <span class="text-ochre text-xs uppercase tracking-architectural font-medium block mb-4">Contacto Directo</span>
+                    <h2 class="font-display text-3xl sm:text-5xl md:text-6xl text-ebony mb-8 leading-tight">Hablemos del espacio que tienes en mente.</h2>
+                    <p class="text-ebony/80 text-base md:text-lg font-light leading-relaxed mb-6 max-w-md">Si estás pensando en una vivienda, un local o una remodelación, el primer paso es entender qué necesitas y qué posibilidades tiene el lugar.</p>
+                    
+                    <div class="space-y-2 border-t border-concrete/40 pt-8 mt-8">
+                        <a href="mailto:hola@previo.com" class="font-display text-xl md:text-2xl text-ebony hover:text-ochre transition-colors block">hola@previo.com</a>
+                        <span class="font-display text-base text-ochre block">@previo</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 reveal bg-[#e8e4df] p-8 md:p-12 border border-concrete/30">
+                    <h3 class="font-display text-xl md:text-2xl text-ebony mb-2">¿Qué espacio quieres transformar?</h3>
+                    <p class="text-sm text-ebony/70 mb-8 font-light">Déjanos algunos datos para conocer mejor tu proyecto.</p>
+
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Consulta enviada. Nos pondremos en contacto.');">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-ebony/70 mb-2">Nombre</label>
+                            <input type="text" required placeholder="Tu nombre o estudio" class="w-full bg-transparent border-b border-ebony/40 focus:border-ochre outline-none py-2 text-ebony placeholder-ebony/40 text-sm transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-ebony/70 mb-2">Correo Electrónico</label>
+                            <input type="email" required placeholder="correo@ejemplo.com" class="w-full bg-transparent border-b border-ebony/40 focus:border-ochre outline-none py-2 text-ebony placeholder-ebony/40 text-sm transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-ebony/70 mb-2">Detalles del Proyecto</label>
+                            <textarea rows="4" required placeholder="Metros aproximados, ubicación, necesidades principales..." class="w-full bg-transparent border-b border-ebony/40 focus:border-ochre outline-none py-2 text-ebony placeholder-ebony/40 text-sm resize-none transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full mt-8 bg-ebony text-alabaster font-display text-xs uppercase tracking-architectural py-5 hover:bg-ochre hover:text-ebony transition-colors duration-300 flex items-center justify-center gap-4">
+                            <span>Enviar consulta</span><span>→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 md:px-12 bg-ebony text-concrete border-t border-grid relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs uppercase tracking-architectural">
+            <div class="flex items-center gap-4">
+                <span class="font-display text-alabaster">PREVIO</span>
+                <span class="text-concrete/40">|</span>
+                <span>© 2026 Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE PROYECTO -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden bg-ebony/95 backdrop-blur-md p-6 md:p-12 overflow-y-auto">
+        <div class="max-w-3xl mx-auto my-12 border border-grid bg-[#141512] p-8 md:p-12 relative">
+            <button onclick="closeProjectModal()" class="absolute top-6 right-6 text-concrete hover:text-ochre font-mono text-sm uppercase">[ Cerrar ✕ ]</button>
+            <span id="modalCategory" class="text-xs uppercase tracking-architectural text-ochre block mb-2"></span>
+            <h3 id="modalTitle" class="font-display text-3xl md:text-5xl text-alabaster mb-6"></h3>
+            <p id="modalDesc" class="text-concrete text-base font-light leading-relaxed mb-6"></p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) header.classList.add('bg-ebony/90', 'backdrop-blur-md', 'border-grid');
+            else header.classList.remove('bg-ebony/90', 'backdrop-blur-md', 'border-grid');
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        const modal = document.getElementById('projectModal');
+        function openProjectModal(title, category, desc) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalCategory').textContent = category;
+            document.getElementById('modalDesc').textContent = desc;
+            modal.classList.remove('hidden'); document.body.style.overflow = 'hidden';
+        }
+        function closeProjectModal() { modal.classList.add('hidden'); document.body.style.overflow = 'auto'; }
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectModal(); });
+    </script>
+</body>
+</html>
